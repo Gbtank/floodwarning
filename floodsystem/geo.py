@@ -63,8 +63,6 @@ def rivers_by_station_number(stations, N):
         # Entries less than limit, can append.        
         # Or entries exceeds N but the current number is the same as last.
         return_list.append((river, number))
-        DEBUG = (river, number)
-        print(f'DEBUG: {DEBUG}')
         entries += 1
         station_number = number
 
