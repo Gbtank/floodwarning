@@ -46,6 +46,3 @@ class MonitoringStation:
             return False
         (low, high) = self.typical_range
         return low < high
-
-
-

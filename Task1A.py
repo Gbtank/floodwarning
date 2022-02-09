@@ -6,7 +6,10 @@ from floodsystem.stationdata import build_station_list
 
 
 def run():
-    """Requirements for Task 1A"""
+    """Prints the total number of stations, 
+    and a summary of the stations named 
+    'Bourton Dickler', 'Surfleet Sluice' and 'Gaw Bridge'.
+    """
 
     # Build list of stations
     stations = build_station_list()

@@ -8,6 +8,35 @@ geographical data.
 
 from .utils import sorted_by_key
 
+from haversine import haversine
+
+def stations_by_distance(stations, p):
+    """Takes a list and stations and point p
+    which is represented by a 2-tuple of
+    (LATITUDE, LONGITUDE) and returns a
+    list of stations sorted by distance
+    from point p.
+    """
+    station_distances = []
+    for station in stations:
+        distance = haversine(p, station.coord)
+        station_distances.append((station, distance))
+    return sorted_by_key(station_distances, 1)
+
+def stations_within_radius(stations, centre, r):
+    """Takes a list of stations, a centre coordinate
+     which is represented by a 2-tuple of
+    (LATITUDE, LONGITUDE) and returns the list of stations
+    such that their distance from the centre is less than 
+    or equal to the distance r.
+    """
+    valid_stations = []
+    for station in stations:
+        distance = haversine(centre, station.coord)
+        if distance <= r:
+            valid_stations.append(station)
+    return valid_stations
+
 def rivers_with_station(stations):
     """Takes a list of stations and
     returns all unique rivers associated
@@ -26,9 +55,9 @@ def stations_by_river(stations):
     station_map = {}
     for station in stations:
         if station.river in station_map:
-            station_map[station.river].add(station.name)
+            station_map[station.river].add(station)
         else:
-            station_map[station.river] = { station.name }
+            station_map[station.river] = { station }
     
     return station_map
 
