@@ -49,7 +49,7 @@ def rivers_with_station(stations):
 
 def stations_by_river(stations):
     """Takes a list of MonitoringStation
-    objects and maps each station's name (value) to its
+    objects and maps each station object (value) to its
     respective river (key).
     """
     station_map = {}

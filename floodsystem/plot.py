@@ -2,24 +2,29 @@
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 
-t = [datetime(2016, 12, 30), datetime(2016, 12, 31), datetime(2017, 1, 1),
-             datetime(2017, 1, 2), datetime(2017, 1, 3), datetime(2017, 1, 4),
-                  datetime(2017, 1, 5)]
-level = [0.2, 0.7, 0.95, 0.92, 1.02, 0.91, 0.64]
+def plot_water_levels(station, dates, levels):
+    title = f"Station {station.name}"
+    plt.plot(dates, levels)
 
-# Plot
-plt.plot(t, level)
+    plt.xlabel("Date")
+    plt.ylabel("Water Level (m)")
+    plt.xticks(rotation=45)
+    plt.title(title)
 
-# Add axis labels, rotate date labels and add plot title
-plt.xlabel('date')
-plt.ylabel('water level (m)')
-plt.xticks(rotation=45);
-plt.title("Station A")
+    plt.tight_layout()
+    plt.show()
 
-# Display plot
-plt.tight_layout()  # This makes sure plot does not cut off date labels
+def plot_water_level_with_fit(station, dates, levels, p):
+    # TODO: Change title
+    title = f"Station {station.name}"
+    plt.plot(dates, levels)
 
-plt.show()
+    plt.xlabel("Date")
+    plt.ylabel("Water Level (m)")
+    plt.xticks(rotation=45)
+    plt.title(title)
 
-#def plot_water_levels(station, dates, levels):
-    # TODO: implement this
+    # TODO: Also plot polynomial p
+
+    plt.tight_layout()
+    plt.show()
