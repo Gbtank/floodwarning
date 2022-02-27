@@ -1,4 +1,4 @@
-from floodsystem.stationdata import build_station_list
+from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.flood import stations_highest_rel_level
 from floodsystem.plot import plot_water_levels
 from floodsystem.datafetcher import fetch_measure_levels
@@ -7,6 +7,7 @@ import datetime
 
 def run():
     stations = build_station_list()
+    update_water_levels(stations)
     risky_stations = stations_highest_rel_level(stations, 5)
     delta = datetime.timedelta(days=10)
     
