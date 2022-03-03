@@ -58,11 +58,6 @@ def run():
     stations = stations[:100]               #Splice the stations, just for testing as all stations takes a very long time
     update_water_levels(stations)
 
-
-
-#    incosistend_stations = inconsistent_typical_range_stations(stations)  #creates a list of stations with inconsistent data
-#    stations = [x for x in stations if x not in incosistend_stations]
-
     for station in stations:
             risk_level,data_good = calculate_risk(station,1,0.002,5)
             risk_tuple = (station.name,risk_level)

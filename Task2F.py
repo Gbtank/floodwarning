@@ -10,6 +10,7 @@ import datetime
 
 def run():
     # Build list of stations
+    stations  = build_station_list()
     risky_stations = stations_highest_rel_level(stations, 5)
     delta = datetime.timedelta(days=2)
     p=4 
