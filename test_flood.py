@@ -60,7 +60,6 @@ def test_stations_level_over_threshold():
     assert result == [(mockA, 0.5), (mockB, 0.25)]
 
 def test_stations_highest_rel_level():
-    result = flood.stations_highest_rel_level(stations, 3)
+    result = flood.stations_highest_rel_level(stations, 2)
     assert result[0] == (mockA, 0.5)
     assert result[1] == (mockB, 0.25)
-    assert result[2] == pytest.approx((mockC, -1.0))

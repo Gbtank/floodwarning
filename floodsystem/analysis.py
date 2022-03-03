@@ -3,5 +3,6 @@ import matplotlib
 
 def polyfit(dates, levels, p):
     d = matplotlib.dates.date2num(dates)
-    poly = np.poly1d(d - d[0], levels, p)
+    p_coeff = np.polyfit(d - d[0], levels, p)
+    poly = np.poly1d(p_coeff)
     return (poly, d[0])
